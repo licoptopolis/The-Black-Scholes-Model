@@ -30,7 +30,7 @@ def inputs():
         S = round(X, 2)     # Round Stock Price to 2 Decimal Places
         print("Underlying Price: " , round(X, 2))
 
-    interest_rate = ("^TNX")
+    interest_rate = ("^TNX")                            # COBE 10 YR TREASURY NOTE YIELD
     interest_rate_data = yf.download(interest_rate)
     R = interest_rate_data["Adj Close"][-1]
     round(R, 2)
@@ -49,7 +49,7 @@ def inputs():
         except (NameError, SyntaxError):
             print("\033[1mInvalid input. Please enter a valid value.\033[m")
 
-    volatility = ("^VIX")               # COBE 10 YR TREASURY NOTE YIELD
+    volatility = ("^VIX")               
     vix_data = yf.download(volatility)  # Programme Downloads Data for VIX
     sigma = vix_data["Adj Close"][-1]   # Retrieve most recent closing price
     round(sigma, 2)
