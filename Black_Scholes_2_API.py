@@ -29,12 +29,11 @@ def inputs():
     while S is None:
         S = round(X, 2)     # Round Stock Price to 2 Decimal Places
         print("Underlying Price: " , round(X, 2))
-    R = None
-    while R is None:
-        try:
-            R = float(input("Risk Free Interest Rate: "))
-        except ValueError:
-            print("\033[1mInvalid input. Please enter a valid value.\033[m")        # Error Handling Process
+
+    interest_rate = ("^TNX")
+    interest_rate_data = yf.download(interest_rate)
+    R = interest_rate_data["Adj Close"][-1]
+    round(R, 2)
 
     K = None
     while K is None:
@@ -50,12 +49,10 @@ def inputs():
         except (NameError, SyntaxError):
             print("\033[1mInvalid input. Please enter a valid value.\033[m")
 
-    sigma = None
-    while sigma is None:
-        try:
-            sigma = float(input("Rate of volatility: "))
-        except ValueError:
-            print("\033[1mInvalid input. Please enter a valid value.\033[m")
+    volatility = ("^VIX")               # COBE 10 YR TREASURY NOTE YIELD
+    vix_data = yf.download(volatility)  # Programme Downloads Data for VIX
+    sigma = vix_data["Adj Close"][-1]   # Retrieve most recent closing price
+    round(sigma, 2)
 
     option_type = None
     while option_type is None:
