@@ -8,3 +8,6 @@ Latest Update: Black_Scholes_2_API.py
 User input volatility rate replaced with Volatility Index - VIX using yfinance API for automated data entery.
 
 User input intereset rate replaced with COBE 10 YR TREASURY NOTE YIELD.
+
+
+Garman Kohlhagen model update soon
